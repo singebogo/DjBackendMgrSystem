@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    后台管理系统
+{% endblock %}
+{% block css %}
+    	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
+    	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+    {% block main-header %}
+        {% include 'header.html' %}
+    {% endblock %}
+    {% block main-content %}
+        <main class="cd-main-content">
+            <nav class="cd-side-nav">
+                <ul>
+                    <li class="cd-label">Main</li>
+                    <li class="overview menuitems">
+                        <a href="#" target="main_iframe">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="cd-label">Data Editing</li>
+                    <li class="has-children income menuitems">
+                        <a href="javascript:void(0);">income expenditure <span class="count">1</span>
+                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
+                        <ul>
+                            <li>
+                                <a href="#" target="main_iframe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-vector-pen" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z" />
+                                        <path fill-rule="evenodd"
+                                            d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z" />
+                                    </svg>
+                                    &nbsp Daily Inout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children views menuitems">
+                        <a href="javascript:void(0);">Views<span class="count">3</span>
+                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#" target="main_iframe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-file-bar-graph" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4.5 12a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1zm3 0a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm3 0a.5.5 0 0 1-.5-.5v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1z" />
+                                        <path
+                                            d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                                    </svg>
+                                    &nbsp Day View
+                                </a></li>
+                            <li><a href="#" target="main_iframe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-clipboard-data-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z" />
+                                        <path
+                                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1ZM10 8a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V8Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1Z" />
+                                    </svg>
+                                    &nbsp Month View
+                                </a></li>
+                            <li>
+                                <a href="#" target="main_iframe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-clipboard-data" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                                        <path
+                                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                        <path
+                                            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                    </svg>
+                                    &nbsp A round of years View
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul>
+                    <li class="cd-label">configuration</li>
+                    <li class="has-children bookmarks menuitems">
+                        <a href="javascript:void(0);">Underlying Type <span class="count">1</span>
+                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#" target="main_iframe">
+                                    <i class="glyphicon glyphicon-cog"></i> underlying type</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children bookmarks  menuitems">
+                        <a href="javascript:void(0);">InOutExpens Type <span class="count">1</span>
+                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#" target="main_iframe">
+                                    <i class="glyphicon glyphicon-leaf"></i> inout expenses type</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children metrics notifications menuitems">
+                        <a href="javascript:void(0);">Metrics <span class="count">1</span>
+                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
+                        <ul>
+                            <li>
+                                <a href="#" target="main_iframe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-alarm" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
+                                        <path
+                                            d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                                    </svg>
+                                    &nbsp detection metrics
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cd-label">manager</li>
+                    <li class="has-children users menuitems">
+                        <a href="javascript:void(0);">Users <span class="count">2</span>
+                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#" target="main_iframe">All Users</a></li>
+                            <li><a href="#" target="main_iframe">permission</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content-wrapper">
+                <div class="content-iframe" style="background-color: white; height: 100%;">
+                    <div class="mainContent" id="content-main" style="margin-top: 40px; padding: 0px; height: 100%;">
+                        <iframe name="main_iframe" width="100%" height="100%" class="main_iframe" id="default"
+                            src="{% url 'homeApp:home' %}" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <!-- <h1>Responsive Sidebar Navigation</h1> -->
+            </div> <!-- .content-wrapper -->
+        </main> <!-- .cd-main-content -->
+    {% endblock %}
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/modernizr.js' %}"></script> <!-- Modernizr -->
+	<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+	<script src="{% static 'js/jquery.menu-aim.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/app/common.js' %}"></script>
+	<script src="{% static 'js/app/main.js' %}"></script>
+{% endblock %}
