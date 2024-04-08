@@ -15,18 +15,12 @@
     <!--主要样式-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    {% block css %}
-
-    {% endblock %}
+    {% block css %}{% endblock %}
 </head>
 <body>
-    {% block content %}
-        
-    {% endblock %}
+    {% block content %}{% endblock %}
     <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    {% block js %}
-    
-    {% endblock %}
+    {% block js %}{% endblock %}
 </body>
 </html>

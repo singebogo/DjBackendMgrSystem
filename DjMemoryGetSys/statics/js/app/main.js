@@ -89,7 +89,10 @@ jQuery(document).ready(function () {
 
 	function checkMQ() {
 		//check if mobile or desktop device
-		return window.getComputedStyle(document.querySelector('.cd-main-content'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+		return window.getComputedStyle(document.querySelector('.cd-main-content'), '::before')
+			.getPropertyValue('content')
+			.replace(/'/g, "")
+			.replace(/"/g, "");
 	}
 
 	function moveNavigation() {
@@ -179,6 +182,6 @@ jQuery(document).ready(function () {
 	$(".breadcrumb-item.active").text("overview");
 	
 	// 设置iframe的高度
-	contentwrapper.css({ height: $(document.body).height() + 56 + 20 + "px" });
+	contentwrapper.css({ height: $(document.body).height()+ "px" });
 
 });

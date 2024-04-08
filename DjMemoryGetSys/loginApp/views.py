@@ -40,9 +40,9 @@ def login(request):
                 auth.login(request, user)
                 # 这段代码看不懂先往下面看
                 # 如果校验通过则进去下一个页面,获取不到则默认跳转index的url
-                # obj = redirect(reverse('homeApp:home'))
-                obj = render(request, "index.html", {"username": user.username})
-                obj.set_signed_cookie('user', user.username)
+                obj = redirect(reverse('homeApp:home'), (user))
+                # obj = render(request, "index.html", {"user": user})
+                obj.set_signed_cookie('user', user)
                 return obj
             else:
                 return render(request, "login.html", {"login_form": login_form})
