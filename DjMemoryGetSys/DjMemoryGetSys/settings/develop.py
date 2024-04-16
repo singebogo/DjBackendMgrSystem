@@ -62,3 +62,6 @@ LOGIN_URL = '/login/'  # 这里配置成你项目登录页面的路由
 
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# 每页显示条数
+PAGE_NUM = 15

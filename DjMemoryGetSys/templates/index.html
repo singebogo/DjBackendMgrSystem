@@ -7,7 +7,9 @@
     	<link rel="stylesheet" href="{% static 'css/style.css' %}">
     	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
     	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block appcss %}{% endblock %}
 {% endblock %}
+
 {% block content %}
     {% block main-header %}
         {% include 'header.html' %}
@@ -24,7 +26,7 @@
                 <ul>
                     <li class="cd-label">定时任务</li>
                     <li class="has-children income menuitems">
-                        <a href="javascript:void(0);">定时任务 <span class="count">1</span>
+                        <a href="javascript:void(0);">定时任务 <span class="count">3</span>
                             <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
                         <ul>
                             <li>
@@ -69,7 +71,7 @@
                         <a href="javascript:void(0);">Views<span class="count">3</span>
                             <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
                         <ul>
-                            <li><a href="#" target="main_iframe">
+                            <li><a href="#" target="_self">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-file-bar-graph" viewBox="0 0 16 16">
                                         <path
@@ -87,7 +89,7 @@
                                         <path
                                             d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1ZM10 8a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V8Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1Z" />
                                     </svg>
-                                    &nbsp Month View
+                                    &nbsp; Month View
                                 </a></li>
                             <li>
                                 <a href="#" target="main_iframe">
@@ -131,45 +133,31 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="has-children metrics notifications menuitems">
-                        <a href="javascript:void(0);">Metrics <span class="count">1</span>
+                    <li class="has-children dataDictionary notifications menuitems">
+                        <a href="javascript:void(0);">manager<span class="count">1</span>
                             <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>
                         <ul>
                             <li>
-                                <a href="#" target="main_iframe">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-alarm" viewBox="0 0 16 16">
-                                        <path
-                                            d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
-                                        <path
-                                            d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                                <a href="{% url 'dataDictionaryApp:index' %}" target="main_iframe" style="align-items: center; display: flex">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <svg  t="1712719132538" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         p-id="4906" width="16" height="16">
+                                        <path d="M80.842105 107.789474a107.789474 107.789474 0 0 1 107.789474-107.789474h646.736842a107.789474 107.789474 0 0 1 107.789474 107.789474v469.638737a161.684211 161.684211 0 0 1-161.684211 161.68421H257.940211a53.894737 53.894737 0 0 0-53.571369 47.642947l-0.323368 6.25179V808.421053a53.894737 53.894737 0 0 0 47.589052 53.517473l6.305685 0.377263H943.157895v15.413895a107.789474 107.789474 0 0 1-107.789474 107.789474H188.631579a107.789474 107.789474 0 0 1-107.789474-107.789474V107.789474z" fill="#4071FF" p-id="4907"></path>
+                                        <path d="M265.647158 123.203368m61.601684 0l369.556211 0q61.601684 0 61.601684 61.601685l0 0q0 61.601684-61.601684 61.601684l-369.556211 0q-61.601684 0-61.601684-61.601684l0 0q0-61.601684 61.601684-61.601685Z" fill="#87BFFD" p-id="4908"></path>
                                     </svg>
-                                    &nbsp detection metrics
+                                    &nbsp;数据字典
                                 </a>
                             </li>
                         </ul>
                     </li>
-{#                    <li class="cd-label">manager</li>#}
-{#                    <li class="has-children users menuitems">#}
-{#                        <a href="javascript:void(0);">Users <span class="count">2</span>#}
-{#                            <i style="float: right;" class="glyphicon glyphicon-chevron-right"></i></a>#}
-{#                        <ul>#}
-{#                            <li><a href="#" target="main_iframe">All Users</a></li>#}
-{#                            <li><a href="#" target="main_iframe">permission</a></li>#}
-{#                        </ul>#}
-{#                    </li>#}
                 </ul>
             </nav>
             <div class="content-wrapper">
                 <div class="content-iframe" style="background-color: white; height: 100%;">
                     <div class="mainContent" id="content-main" style="margin-top: 40px; padding: 0px; height: 100%;">
-{#                        <iframe name="main_iframe" width="100%" height="100%" class="main_iframe" id="default"#}
-{#                            src="{% block iframeUrl %}{% url 'homeApp:home' %}{% endblock %}" frameborder="0">#}
-{##}
-{#                        </iframe>#}
-                        {% block iframeContent %}
-                            <p>index</p>
-                        {% endblock %}
+                     <iframe name="main_iframe" width="100%" height="100%" class="main_iframe" id="default"
+						src="{% url 'homeApp:home' %}" frameborder="0" data-id="home.html"></iframe>
                     </div>
                 </div>
                 <!-- <h1>Responsive Sidebar Navigation</h1> -->
@@ -183,4 +171,5 @@
 	<script src="{% static 'js/jquery.menu-aim.js' %}"></script>
 	<script src="{% static 'js/app/common.js' %}"></script>
 	<script src="{% static 'js/app/main.js' %}"></script>
+    {% block appjs %}{% endblock %}
 {% endblock %}

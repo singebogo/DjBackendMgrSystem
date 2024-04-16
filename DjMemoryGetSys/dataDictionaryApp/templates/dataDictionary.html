@@ -1,0 +1,73 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+
+{#消息提示内嵌 #}
+{% load messages_tags %}
+{#消息弹框 内嵌 自动消失#}
+{% load alert_inner_tags %}
+{#消息弹框 自动消失#}
+{% load alert_tags %}
+{#查询界面#}
+{% load queryToolBar_tags %}
+{#删除确认框#}
+{% load confirm_tags %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>数据字典</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'js/jquery-ui-1.12.1/jquery-ui.css' %}">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'js/bootstrap-table/dist/bootstrap-table.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+</head>
+
+<body>
+<!-- 遮罩层 -->
+{% csrf_token %}
+<!-- 查询工具栏 -->
+{% render_queryToolbar Form formUrl formAddUrl %}
+<hr/>
+
+{#    {% render_messages messages %}#}
+{#    {% render_alert messages %}#}
+{% render_alert_inner messages %}
+
+{#过滤器#}
+{% if filter %}
+    <form action="" method="get" class="form form-inline">
+        {% bootstrap_form filter.form layout='inline' %}
+        {% bootstrap_button 'filter' %}
+    </form>
+{% endif %}
+
+{#查询结果#}
+{% render_table table %}
+
+{#确定框#}
+{% render_confirm %}
+
+</body>
+<!-- JS 部分 -->
+<!-- jQuery 3 -->
+<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.js' %}"></script>
+
+<!-- Bootstrap 3.3.7 -->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-table/dist/bootstrap-table.min.js' %}"></script>
+
+<!-- Latest compiled and minified Locales -->
+<script src="{% static 'js/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js' %}"></script>
+<script src="{% static 'js/app/tags/widget.js' %}"></script>
+
+</html>

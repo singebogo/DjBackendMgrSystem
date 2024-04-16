@@ -1,0 +1,23 @@
+<!-- messages.html -->
+{% if messages %}
+    <div class="messages row">
+        <div class="col-xs-offset-1 col-xs-3 alerthidden" id="noticeTips">
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close btn btn-warning btn-xs" data-dismiss="alert">&times;</button>
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message {{ message.level_tag }}">
+                            <strong><span id="msgs">{{ message }}</span></strong>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<script>
+    window.setTimeout(function () {
+        $('#noticeTips').css({ display: "none" });
+    }, 2000);//显示的时间
+</script>
+

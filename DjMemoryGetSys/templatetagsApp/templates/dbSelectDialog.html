@@ -1,0 +1,68 @@
+<div id="dbselectfade" class="black_overlay">
+    </div><div class="white_content_dbselect" id="dbSelectModal" tabindex="-1" role="dialog" aria-labelledby="dbSelectModal">
+    <div id="dbSelectModalDialog" class="dbselectmodal-dialog" role="document">
+        <div class="modal-content" style="width:400px;">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span id="title">请选择 </span>
+                    </div>
+                    <div class="col-sm-offset-8 col-sm-1">
+                        <a href="javascript:void(0)" id="close"
+                            onclick="$('#dbSelectModal').css({display:'none'});$('#dbselectfade').css({display:'none'});">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{% url dbSelectUrl %}" role="form">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label for="selectCode" class="col-lg-5 col-md-5 col-xs-5 control-label">代码</label>
+                                    <div class="col-lg-7 col-md-7 col-xs-7">
+                                        <input type="text" class="form-control input-sm" id="selectCode"
+                                            placeholder="请输入">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label for="selectName"
+                                        class="col-lg-5 col-md-5 col-xs-5 control-label">代码名称</label>
+                                    <div class="col-lg-7 col-md-7 col-xs-7">
+                                        <input type="text" class="form-control input-sm" id="selectName"
+                                            placeholder="请输入">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-8 col-md-8 col-xs-8">
+                                <div class="form-group">
+                                    <input type="button" class='btn btn-primary btn-xs' id='dbSelectQuery' value="查询" />
+                                    <input type="button" class='btn btn-primary btn-xs' id='dbSelectReset' value="重置" />
+                                    <input type="button" class='btn btn-primary btn-xs' id='dbSelectCancel' value="取消"
+                                        onclick="$('#dbSelectModal').css({display:'none'});$('#dbselectfade').css({display:'none'});"/>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% render_table dbSelectTable %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>

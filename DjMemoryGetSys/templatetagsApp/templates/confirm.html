@@ -1,0 +1,55 @@
+{#<div class='modal fade' id='myConfirm'>#}
+{#    <div class='modal-backdrop in' style='opacity:0; '></div>#}
+{#    <div class='modal-dialog' style='z-index:2901; margin-top:60px; width:400px; '>#}
+{#        <div class='modal-content'>#}
+{#            <div class='modal-header' style='font-size:16px; '>#}
+{#                <span class='glyphicon glyphicon-envelope'>&nbsp;</span>信息！#}
+{#                <button type='button' class='close' data-dismiss='modal'>#}
+{#                    <span style='font-size:20px;' class='glyphicon glyphicon-remove'></span>#}
+{#                </button>#}
+{#            </div>#}
+{#            <div class='modal-body text-center' id='myConfirmContent' style='font-size:18px; '>#}
+{#                是否确定要删除？#}
+{#            </div>#}
+{#            <div class='modal-footer' style=''>#}
+{#                <button class='btn btn-danger btn-xs' id='confirmOk' onclick=confirm()>确定</button>#}
+{#                <button class='btn btn-info btn-xs' data-dismiss='modal'>取消</button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+ <div class="modal fade" id='myConfirm' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h3>确认删除吗？</h3>
+                    <p style="margin: 20px 0px">删除后，相关信息将会永久删除，不可恢复。为了避免不必要的麻烦，请确认是否要继续删除？</p>
+                    <p style="text-align: right">
+                        <button type="button"  onclick=confirm() class="btn btn-danger">是，确认删除</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">否，取消</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+<script>
+    function confirm() {
+        $("#myConfirm").modal("hide");
+        url = $("#myConfirm").attr("url")
+        let data = {};
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: data,
+            timeout: 10000,
+            traditional: true,//这里设置为true
+            // 上面data为提交数据，下面data形参指代的就是异步提交的返回结果data
+            success: function (obj) {
+                location.reload()
+            },
+            error: function (obj) {
+                location.reload()
+            }
+        });
+    }
+</script>

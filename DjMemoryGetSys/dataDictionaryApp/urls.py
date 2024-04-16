@@ -1,4 +1,4 @@
-"""DjMemoryGetSys URL Configuration
+"""django_loginDev URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -13,12 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path
+from .views import index, vaildCodeTypeQuery, CodetypeAll, CodetypeDelete, CodetypeUpdate,addCodetype
+
+app_name = 'dataDictionaryApp'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login/', include('loginApp.urls'), name="loginApp1"),
-    path('home/', include('homeApp.urls'), name='homeApp'),
-    re_path(r'^.*$', include('homeApp.urls'), name="homeAll")
+    path('index/', index, name='index'),
+    path('CodetypeAll/', CodetypeAll, name='CodetypeAll'),
+    path('CodetypeDelete<int:pk>/', CodetypeDelete, name='CodetypeDelete'),
+    path('CodetypeUpdate<int:pk>/', CodetypeUpdate, name='CodetypeUpdate'),
+    path('addCodetype/', addCodetype, name='addCodetype'),
+    path('vaildCodeTypeQuery/', vaildCodeTypeQuery, name='vaildCodeTypeQuery'),
 ]

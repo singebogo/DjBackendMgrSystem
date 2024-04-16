@@ -33,9 +33,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',  # 使用数据库支持的会话
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'homeApp',
+
+    'widget_tweaks',  # 项目依赖
+    'django_tables2',  # 项目依赖
+    'django_filters',  # 项目依赖
+    'bootstrap4',
+    'templatetagsApp',
+
     'loginApp',
     'headerApp',
+
+    'homeApp',
+    'dataDictionaryApp',
 ]
 
 MIDDLEWARE = [
@@ -70,10 +79,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DjMemoryGetSys.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 
 
 # Password validation
@@ -94,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -108,9 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'zh-hans'
 TIME_ZONE = 'Asia/Shanghai'  # 时区
 USE_I18N = True  # 国际化配置
-USE_L10N = True    # 表单国际化配置
-USE_TZ = False   # 默认启用时时区配置
-
+USE_L10N = True  # 表单国际化配置
+USE_TZ = False  # 默认启用时时区配置
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -119,4 +124,3 @@ USE_TZ = False   # 默认启用时时区配置
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

@@ -1,0 +1,46 @@
+<div class="form-inline">
+    <div class="querytoolbar-header" style="background-color: #FFFAF0;">
+        <span style="padding-left: 20px; padding-top: 10px" class="querytoolbar-title">查询条件：</span>
+    </div>
+    <div class="querytoolbar-body">
+        <div>
+            <div class="form-wrapper row">
+                <form action="{% url formUrl %}" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="form-wrapper row">
+                        {% for field in Form %}
+                            <div class="form-wrapper col-lg-3 col-sm-3 col-md-3">
+                                {{ field.label_tag }} {{ field }}
+                                {% if field.help_text %}
+                                    <p class="help">{{ field.help_text|safe }}</p>
+                                {% endif %}
+                                <p class="text-danger">{{ field.errors.as_text }}</p>
+                            </div>
+                        {% endfor %}
+                        {#                        此处错误信息会返回clean联合校验，也就是非单个字段校验的错误信息#}
+                        {% if form.subject.errors %}
+                            <ol>
+                                {% for error in form.subject.errors %}
+                                    <li><strong>{{ error|escape }}</strong></li>
+                                {% endfor %}
+                            </ol>
+                        {% endif %}
+                    </div>
+                    <div class="form-wrapper row">
+                        <div class="button-wrapper submit col-lg-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-3 col-sm-3 col-md-3">
+                            <input type="submit" value="查询" class="btn btn-primary btn-xs pull-left" style="margin-left: 5px; "/>
+                            <input type="reset" value="重置" class="btn btn-primary btn-xs pull-left" style="margin-left: 5px; "/>
+                            <a class="button btn btn-primary btn-xs pull-left"
+                               style="margin-left: 5px"
+                               href="{% url formAddUrl %}">新增</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="querytoolbar-footer"  style="padding-bottom: 20px" >
+        <div>
+        </div>
+    </div>
+</div>

@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('loginApp.urls'), name="loginApp1"),
     path('home/', include('homeApp.urls'), name='homeApp'),
+    path('datadict/', include('dataDictionaryApp.urls'), name='dataDictionaryApp'),
     re_path(r'^.*$', include('homeApp.urls'), name="homeAll")
 ]

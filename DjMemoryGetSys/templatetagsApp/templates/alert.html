@@ -1,0 +1,16 @@
+<!-- messages.html -->
+{% if messages %}
+    <div class="alert alert-success fade in" id="alertTips">
+        {% for message in messages %}
+            {{ message.tags }}
+            <p>
+                {{ message }}
+            </p>
+        {% endfor %}
+    </div>
+{% endif %}
+<script>
+    window.setTimeout(function () {
+        $('#alertTips').css({display: "none"});
+    }, 2000);//显示的时间
+</script>

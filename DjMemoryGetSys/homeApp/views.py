@@ -12,5 +12,11 @@ def home(request):
 
 @xframe_options_sameorigin
 @login_required()
+def index(request):
+    return render(request, 'index.html')
+
+
+@xframe_options_sameorigin
+@login_required()
 def catch_all(request, route):
     return redirect(reverse('loginApp:login'))
