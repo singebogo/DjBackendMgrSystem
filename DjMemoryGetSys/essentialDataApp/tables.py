@@ -1,11 +1,11 @@
 import django_tables2 as tables
 from django.utils.html import format_html
 from django.urls import reverse
-from .models import DataDict
+from .models import CodeType
 
 
-class DataDictTable(tables.Table):
-    id_select = tables.CheckBoxColumn(accessor="id", orderable=False, exclude_from_export=True)
+class EssentialDataTable(tables.Table):
+    id_select = tables.CheckBoxColumn(accessor="code", orderable=False, exclude_from_export=True)
     count = tables.Column(empty_values=(), verbose_name='#')
     actions = tables.Column(empty_values=(), verbose_name="操作", orderable=False, exclude_from_export=True)
 
@@ -19,14 +19,13 @@ class DataDictTable(tables.Table):
 
         setattr(self, 'row_counter', row_counter)
         return format_html(
-            '<a href= "' +
-            reverse("dataDictionaryApp:view", args=[str(record['id'])]) + '">' + str(row_counter) + '</a>')
+            '<a href= "' + reverse("essentialDataApp:view", args=[str(record['code'])]) + '">' + str(row_counter) + '</a>')
     
     class Meta:
         # 使用哪个模型
-        model = DataDict
+        model = CodeType
         # 表格中显示哪些字段
-        fields = ['count', 'type', 'name', 'code', 'value', 'invildId','createdUser','updatedUser','createdDate','updatedDate']
+        fields = ['count', 'code', 'name', 'invildId','createdUser','updatedUser','createdDate','updatedDate']
         # 表格中字段显示顺序
         sequence = ['id_select'] + fields + ['actions']
         # 表格模板
@@ -43,10 +42,10 @@ class DataDictTable(tables.Table):
 
     # 自定义操作链接
     def render_actions(self, value, record):
-        url = reverse("dataDictionaryApp:delete", args=[str(record['id'])])
+        url = reverse("essentialDataApp:delete", args=[str(record['code'])])
         return format_html(
             '<a class="btn btn-sm badge badge-pill badge-warning ml-2" href= "' +
-            reverse("dataDictionaryApp:update", args=[str(record['id'])]) + '">' + '编辑' + '</a>'
+            reverse("essentialDataApp:update", args=[str(record['code'])]) + '">' + '编辑' + '</a>'
             + '<a href="javascript:void(0);" onclick="$(\'#myConfirm\').attr(\'url\', \''+url+'\'); $(\'#myConfirm\').modal(\'show\');return false"'
                                                                                               ' class="btn btn-sm badge badge-pill badge-danger ml-2">'
             + '删除' + '</a>'

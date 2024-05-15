@@ -404,7 +404,7 @@ Top Navigation
   }
 
   .cd-top-nav>li a {
-    padding: 1em .6em !important;
+    padding: 3px 10px !important
   }
 
   .cd-top-nav img {
@@ -480,6 +480,7 @@ Sidebar
   position: relative;
   color: #ffffff;
   font-size: 1.4rem;
+  text-decoration: none;
 }
 
 .cd-side-nav ul.cd-top-nav>li:last-of-type>a {
@@ -795,7 +796,7 @@ Sidebar
   .has-children ul a {
     text-align: left;
     border: none;
-    padding: 1em;
+    padding: 5px;
   }
 
   .no-touch .has-children ul a:hover {
@@ -819,7 +820,7 @@ Sidebar
   .cd-top-nav .has-children>a {
     height: 100%;
     /* padding: 0 calc(1.8em + 10px) 0 calc(1.8em + 10px) !important; */
-    padding: 0px 40px 0px 5px !important;
+    padding: 0px 50px 0px 20px !important;
     line-height: 55px;
   }
 
@@ -928,10 +929,10 @@ Sidebar
   user-select: none;
   padding: calc(.25rem - 1px) .25rem;
   height: 1.25rem;
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
   min-width: 1.25rem;
   font-weight: 600;
-  font-size: .625rem;
+  font-size: .888rem;
   letter-spacing: .04em;
   text-transform: uppercase;
 }
@@ -942,19 +943,19 @@ Sidebar
 
 @-webkit-keyframes zy {
   10% {
-    transform: rotate(15deg);
+    transform: rotate(20deg);
   }
 
   20% {
-    transform: rotate(-10deg);
+    transform: rotate(-20deg);
   }
 
   30% {
-    transform: rotate(5deg);
+    transform: rotate(30deg);
   }
 
   40% {
-    transform: rotate(-5deg);
+    transform: rotate(-30deg);
   }
 
   50%,

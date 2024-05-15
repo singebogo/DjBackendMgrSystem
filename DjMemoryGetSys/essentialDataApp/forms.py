@@ -1,23 +1,12 @@
 from collections import OrderedDict
 
 from django import forms
-from .models import DataDict
+from .models import CodeType
 
 
 class QueryToolbarForm(forms.Form):
-    type = forms.CharField(
-        label='字典类型',
-        required=False,
-        # min_length=3,
-        initial='',
-        widget=forms.TextInput(attrs={"class": "form-control input-sm", "placeholder": "请双击选择字典类型"}),
-        # error_messages={
-        #     "required": "字典类型不能为空",
-        #     "min_length": "字典类型最小长度为3位",
-        # },
-    )
     name = forms.CharField(
-        label="字典名称",
+        label="名称",
         required=False,
         # min_length=6,
         initial='',
@@ -25,11 +14,11 @@ class QueryToolbarForm(forms.Form):
         #     "min_length": "字典名称最小长度为6位",
         #     "required": "字典名称不能为空",
         # },
-        widget=forms.TextInput(attrs={"class": "form-control input-sm", "placeholder": "请输入字典名称"}),
+        widget=forms.TextInput(attrs={"class": "form-control input-sm", "placeholder": "请输入名称"}),
     )
 
     code = forms.CharField(
-        label="字典代码",
+        label="代码",
         required=False,
         # min_length=6,
         initial='',
@@ -37,17 +26,17 @@ class QueryToolbarForm(forms.Form):
         #     "min_length": "字典代码最小长度为6位",
         #     "required": "字典代码不能为空",
         # },
-        widget=forms.TextInput(attrs={"class": "form-control input-sm", "placeholder": "请输入字典代码"}),
+        widget=forms.TextInput(attrs={"class": "form-control input-sm", "placeholder": "请输入代码"}),
     )
 
     class Meta:
-        model = DataDict
-        fields = ['type', 'name', 'code']
+        model = CodeType
+        fields = ['name', 'code']
 
 
-class DataDictUpdateForm(forms.ModelForm):
+class EssentialDataAddForm(forms.ModelForm):
     code = forms.CharField(
-        label='*字典代码',
+        label='*代码',
         required=True,
         min_length=3,
         initial='',
@@ -69,7 +58,6 @@ class DataDictUpdateForm(forms.ModelForm):
             "required": "生效时间不能为空",
         },
     )
-
     disableTime = forms.DateTimeField(
         label='*失效时间',
         required=True,
@@ -79,7 +67,14 @@ class DataDictUpdateForm(forms.ModelForm):
         },
     )
 
+
     class Meta:
         # 自定义使用哪个模型和哪些字段来创建和更新用户
-        model = DataDict
-        fields = ['type', 'code', 'name', 'value', 'enableTime', 'disableTime', 'invildId', 'remark', ]
+        model = CodeType
+        fields = ['name', 'code', 'enableTime',  'disableTime',  'invildId',  'remark',]
+
+class EssentialDataUpdateForm(EssentialDataAddForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['code'].widget.attrs.update(readonly='true')

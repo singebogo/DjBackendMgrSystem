@@ -14,15 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from .views import index, vaildCodeTypeQuery, CodetypeAll, CodetypeDelete, CodetypeUpdate,addCodetype
+from .views import index, delete, update, add, vaild, view
 
 app_name = 'dataDictionaryApp'
 
 urlpatterns = [
     path('index/', index, name='index'),
-    path('CodetypeAll/', CodetypeAll, name='CodetypeAll'),
-    path('CodetypeDelete<int:pk>/', CodetypeDelete, name='CodetypeDelete'),
-    path('CodetypeUpdate<int:pk>/', CodetypeUpdate, name='CodetypeUpdate'),
-    path('addCodetype/', addCodetype, name='addCodetype'),
-    path('vaildCodeTypeQuery/', vaildCodeTypeQuery, name='vaildCodeTypeQuery'),
+    path('delete<int:pk>/', delete, name='delete'),
+    path('update<int:pk>/', update, name='update'),
+    path('view<int:pk>/', view, name='view'),
+    path('add/', add, name='add'),
+    path('vaild/', vaild, name='vaild'),
 ]

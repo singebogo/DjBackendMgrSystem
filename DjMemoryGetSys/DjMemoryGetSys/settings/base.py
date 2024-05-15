@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'homeApp',
     'dataDictionaryApp',
+    'essentialDataApp',
 ]
 
 MIDDLEWARE = [

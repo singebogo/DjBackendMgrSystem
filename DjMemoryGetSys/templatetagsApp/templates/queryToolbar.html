@@ -29,7 +29,10 @@
                     <div class="form-wrapper row">
                         <div class="button-wrapper submit col-lg-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-3 col-sm-3 col-md-3">
                             <input type="submit" value="查询" class="btn btn-primary btn-xs pull-left" style="margin-left: 5px; "/>
-                            <input type="reset" value="重置" class="btn btn-primary btn-xs pull-left" style="margin-left: 5px; "/>
+{#                            <input type="reset" value="重置" class="btn btn-primary btn-xs pull-left" style="margin-left: 5px; "/>#}
+                            <a class="button btn btn-primary btn-xs pull-left"
+                               style="margin-left: 5px"
+                               href="{% url formUrl %}">重置</a>
                             <a class="button btn btn-primary btn-xs pull-left"
                                style="margin-left: 5px"
                                href="{% url formAddUrl %}">新增</a>

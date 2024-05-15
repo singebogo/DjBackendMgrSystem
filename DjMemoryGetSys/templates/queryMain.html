@@ -19,7 +19,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>数据字典</title>
+    <title>{{ title }}</title>
 
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
@@ -27,6 +27,8 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{% static 'js/bootstrap-table/dist/bootstrap-table.css' %}">
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'js/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
 </head>
 
@@ -68,6 +70,10 @@
 
 <!-- Latest compiled and minified Locales -->
 <script src="{% static 'js/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js' %}"></script>
-<script src="{% static 'js/app/tags/widget.js' %}"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="{% static 'js/bootstrap-datepicker/js/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js' %}"></script>
+
+<script src="{% static 'js/app/common.js' %}"></script>
 
 </html>
